@@ -27,7 +27,7 @@ const ReviewsService = {
       .leftJoin(
         'thingful_users AS usr',
         'rev.user_id',
-        'usr.id',
+        'usr.id'
       )
       .where('rev.id', id)
       .first()
@@ -41,7 +41,7 @@ const ReviewsService = {
       .then(([review]) => review)
       .then(review =>
         ReviewsService.getById(db, review.id)
-      )
+      );
   },
 
   serializeReview(review) {
